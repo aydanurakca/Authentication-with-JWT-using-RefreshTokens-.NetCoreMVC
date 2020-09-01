@@ -1,0 +1,26 @@
+﻿@model JWT_Auth.Models.AuthenticateRequest
+@{
+    ViewData["Title"] = "Login Page";
+}
+
+@if (Context.Request.Cookies["access_token"] == null)
+{
+    <div class="col-md-4 offset-md-4" style="margin-bottom:100px">
+        <section>
+            <form asp-action="AuthFunction" asp-controller="Home" id="account" method="post">
+                <div class="form-group">
+                    <label asp-for="Username">Username</label>
+                    <input asp-for="Username" id="usernameid" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password">Password</label>
+                    <input asp-for="Password" type="password" id="passwordid" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <button id="buttonid" type="submit" class="btn btn-outline-primary">Log in</button>
+                </div>
+            </form>
+        </section>
+    </div>
+}
+    
